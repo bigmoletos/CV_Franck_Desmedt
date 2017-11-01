@@ -12,7 +12,7 @@ and open the template in the editor.
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="style/styleCV.css"  type="text/css" charset="utf_8"/>
         <link rel="stylesheet" href="font/font-awesome-4.7.0/css/font-awesome.min.css">
-        <!--<script src="jqueryFiles/jquery-3.2.1.min.js"></script>-->
+        <script src="style/jqueryFiles/jquery-3.2.1.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -33,7 +33,7 @@ and open the template in the editor.
 
 
             <div class="col-md-4 " id="contact">     <h2>Contactez-moi</h2>
-<!--                <p>  Marié, 2 enfants </p>                                 -->
+                <!--                <p>  Marié, 2 enfants </p>                                 -->
 
                 <a href="tel:+33663748518"><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i> </a> 06 63 74 85 17  
                 <p>                                    
@@ -240,14 +240,32 @@ and open the template in the editor.
 //                                                                        $("#bouton").keyup();//avec .click ne fonctionne pas ici
 //                                                                   // }
 //                                                                });
-//
+                        $("#soft").mousemove(function () {
+//                            $("#hard, #experience").fadeOut(1000).show(1000);
+                             $("#hard, #experience").animate({width: "100%", opacity: 0.5}, 500);
+                            $("#soft").mousemove(function () {
+                           $("#hard:animated, #soft:animated, #experience:animated").delay(2000).stop();//stop les animations en cours  
+                            $("#hard, #experience").animate({width: "100%", opacity: 1}, 1500);
+    });
+//                            $("#hard, #experience").animate({width: "50%", opacity: 0.3},1000);
+//                             $("p:animated").stop();//stop les animations en cours
+                        });//fin mousemove
+
+                        $("#hard").mousemove(function (event) {
+                            $("#soft, #experience").animate({width: "100%", opacity: 0.5}, 500);
+                    $("#soft:animated,#hard:animated, #experience:animated").delay(2000).stop()
+ $("#soft, #experience").animate({width: "100%", opacity: 1}, 1500);
+//                            $("p:animated").stop();//stop les animations en cours
+//                            $("p:animated").stop(false);//stop l' animations suivante
+//                            $("p:animated").stop(false, false);//stop les animations suivantes
+                        });///fin mousemove
 //                                        $("#ajout").click(function (event) {
 //                                            if (event.keyCode === 10) {//limitation à 10 taches
 //                                                $("#bouton").keyup();//avec .click ne fonctionne pas ici
 //                                            }
 //                                        });
 //                                        //pour barrer le texte
-//                                        $(document).on('click', '#check', function () {
+//                                        $(document).on("click", '#check', function () {
 //                                            $(this).toggleClass('strike');//.fadeOut('slow'); //pour supprimer totalement la ligne
 //                                        });
 //                                        //pour supprimer la tache
