@@ -1,0 +1,27 @@
+ <html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <input type="text" name="phoneNumber"> 
+        <h1> beau titre h1</h1>
+        <div> hh </div>
+        <script>
+//<![CDATA[
+$(document).ready(function(){
+$('input[name=phoneNumber]')
+.after('<div class="error"></div>')
+.addClass('control phoneNumber')
+.attr('maxlength', 4)
+.focus(alert("toto"));
+// Mon code JQuery
+});
+//]]>
+</script>
+        
+    </body>
+</html>
